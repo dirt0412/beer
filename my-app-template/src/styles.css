@@ -1,0 +1,52 @@
+@import 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css';
+
+/* PAGINATIN */
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #f4f4f4;
+  border-color: #DDDDDD;
+  color: inherit;
+  cursor: default;
+  z-index: 2;
+}
+.pagination > li > a,
+.pagination > li > span {
+  background-color: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  color: inherit;
+  float: left;
+  line-height: 1.42857;
+  margin-left: -1px;
+  padding: 4px 10px;
+  position: relative;
+  text-decoration: none;
+}
+
+.name-beer{
+    font-size: 24px;
+    color: burlywood;
+    font-weight: 800;
+    
+}
+.tagline-beer{
+    font-size: 16px;
+    color: grey;
+    font-weight: 500;
+    margin-left: 20%;
+}
+.image-beer{
+    height: 200px;
+    width: 100px;
+    /* margin-left: 40%; */
+}
+
+.center {
+    margin: auto;
+    /* width: 50%; */   
+    padding: 10px;
+}
+

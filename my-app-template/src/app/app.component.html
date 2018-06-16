@@ -1,0 +1,105 @@
+<div id="id3" class="wrapper wrapper-content" (scroll)="onScrollEvent($event)">
+  <div class="p-w-md m-t-sm">
+  
+    <div class="row">
+
+    </div>
+
+    <div class="row  card-group">
+
+      <div class="col-sm-4" style="padding-left:40px; padding-right: 40px;">
+        <h2>
+          <span style="color: burlywood; font-weight: 800;">BEER</span>
+          <span style="color: dimgray; font-weight: 800;">GURU</span>
+        </h2>
+      </div>
+      <div class="col-sm-4" style="padding-left:40px; padding-right: 40px;">
+
+      </div>
+      <div class="col-sm-4" style="padding-left:40px; padding-right: 40px;">
+
+      </div>
+
+      <div class="col-sm-4" *ngFor="let beer of beerArray" style="padding-left:40px; padding-right: 40px; padding-bottom:20px;">
+        <div (click)="open(content, beer.id)" class="card">
+          <img src="{{beer.image_url}}" alt="" class="image-beer center">
+          <span class="small m-t-xs name-beer center">{{beer.name}}</span>
+          <span class="small m-t-xs tagline-beer center">{{beer.tagline}}</span>
+        </div>
+      </div>
+
+    </div>
+    <!-- pager -->
+    <!-- <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage(pager.totalpages[pages.length-1])">Last</a>
+      </li>
+    </ul> -->
+  </div>
+</div>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <table>
+
+      <tr *ngFor="let beer of beerArrayDetailsInfo">
+        <td rowspan="5">
+          <img src="{{beer.image_url}}" alt="" class="image-beer center"> </td>
+        <td>
+          <span style="color:grey;" class="small m-t-xs name-beer center">{{beer.name}}</span>
+        </td>
+      </tr>
+      <tr *ngFor="let beer of beerArrayDetailsInfo">
+        <td>
+          <span style="font-weight: 200;" class="small m-t-xs tagline-beer center">{{beer.tagline}}</span>
+        </td>
+      </tr>
+      <tr *ngFor="let beer of beerArrayDetailsInfo">
+        <td>
+          <span style="font-weight: 600;" class="small m-t-xs tagline-beer center">IBU: </span>{{beer.ibu}}
+          <span style="font-weight: 600;" class="small m-t-xs tagline-beer center">ABV: </span>{{beer.abv}}%
+          <span style="font-weight: 600;" class="small m-t-xs tagline-beer center">EBC: </span>{{beer.ebc}}
+        </td>
+      </tr>
+      <tr *ngFor="let beer of beerArrayDetailsInfo">
+        <td>
+          <span class="small m-t-xs tagline-beer center">{{beer.description}}</span>
+        </td>
+      </tr>
+      <tr *ngFor="let beer of beerArrayDetailsInfo">
+        <td>
+          Best served with:
+          <ul style="list-style-type:none;">
+            <li *ngFor="let b of beer.food_pairing">
+              - {{b}}
+            </li>
+          </ul>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+  <div class="modal-footer">
+  
+  </div>
+</ng-template>
